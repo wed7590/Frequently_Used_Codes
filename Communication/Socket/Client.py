@@ -1,24 +1,5 @@
-
 import socket
 import time
-
-HOST = '127.0.0.1'
-PORT = 50007
-
-# HOST = '192.168.0.12'
-# PORT = 50001
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((HOST,PORT))
-s.listen(1)
-
-conn, addr = s.accept()
-
-print('Connected by' , addr)
-while 1:
-    data = conn.recv(1024)
-    if not data: break
-    conn.sendall(data)
-conn.close()
 
 class Client():
     def __init__(self, host, port, packet_size = 4096):
@@ -30,7 +11,7 @@ class Client():
                 packet_size : int
         '''
 
-        # 접속할 서버 주소 (hostname or ip_address
+        # 접속할 서버 주소 (hostname or ip_address)
         # 루프백(loopback) 인터페이스 주소 == localhost == 127.0.0.1
         self.host = host
 
@@ -49,20 +30,19 @@ class Client():
         # 소켓 타입 : TCP = SOCK_STREAM / UDP = SOCK_DGRAM / SOCK_RAW / ...
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-        print("client socket create")
+        print("Client Socket create")
 
-    def connect(self):
+    def connect(self): 
         # 서버에 연결
         try:
             self.client_socket.connect((self.host, self.port))
             self.client_socket.settimeout(5)
             self.client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-            print("connected")
+            print("Connected")
         except Exception as e :
-            print("Connect Exception : ", e)
+            print("connect Exception : ", e)
             time.sleep(1)
-
 
     def send(self, byte_data) :
         #print('Server ', self , ' called send : ', len(byte_data))
@@ -107,7 +87,12 @@ class Client():
 
 
 if __name__ == "__main__" :
-    client = Client("127.0.0.1", 7979, 3)
-    client.send("Hello")
-    data = client.recv(1024)
-    print( repr(data.decode()) )
+    client1 = Client("127.0.0.1", 7979)
+    client2 = Client("127.0.0.1", 7980)
+    client1.send("Hello1".encode())
+    data1 = client1.recv(10)
+    print(repr(data1.decode()))
+
+    client2.send("Hello2".encode())
+    data2 = client2.recv(10)
+    print(repr(data2.decode()))

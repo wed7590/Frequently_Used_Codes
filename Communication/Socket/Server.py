@@ -1,6 +1,6 @@
 import socket
-import struct
 import time
+from concurrent.futures import ThreadPoolExecutor
 
 class Server:
     def __init__(self, ip_addr, port, max_connection = 1):
@@ -14,10 +14,11 @@ class Server:
 
         # 접속할 서버 주소 (hostname or ip_address or "" -> 빈문자열이면 모든 네트워크 인터페이스로부터의 접속을 허용)
         # 루프백(loopback) 인터페이스 주소 == localhost == 127.0.0.1
-        self.SERVER_IP = ip_addr
+        self.server_ip = ip_addr
 
         # 클라이언트 접속을 대기하는 포트 번호 ( 1~65535 )
-        self.SERVER_PORT = port
+        # 포트별 쓰레드풀 생성
+        self.server_port = port
 
         # 접속을 허용할 최대 갯수
         self.max_connection = max_connection
@@ -35,32 +36,35 @@ class Server:
         # 포트 사용중 에러 해결 (WinError 10048)
         self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-        print("server socket create")
+        print("Server Socket Create")
 
     def bind(self):
         # bind() -> 소켓을 특정 네트워크 인터페이스와 포트 번호에 연결하는데 사용
-        self.server_socket.bind((self.SERVER_IP, self.SERVER_PORT))
+        self.server_socket.bind((self.server_ip, self.server_port))
 
-        print("server socket bind")
+        print("Server Socket Bind")
 
     def listen(self):
         # 서버가 클라이언트의 접속을 허용
         self.server_socket.listen()
 
-        print("server socket listen")
+        print("Server Socket Listen")
 
     def accept_client(self):
-            
-        try:
-            # accept() -> 대기하다가 클라이언트가 접속하면 새로운 소켓을 리턴
-            self.client_socket, self.addr = self.server_socket.accept()
+        while True:
+            try:
+                # accept() -> 대기하다가 클라이언트가 접속하면 새로운 소켓을 리턴
+                self.client_socket, self.addr = self.server_socket.accept()
 
-            # 접속한 클라이언트의 주소
-            print("Connected by", self.addr)
+                # 접속한 클라이언트의 주소
+                print("Connected by", self.addr)
 
-        except Exception as e :
-            print("accept_client Exception : ", e)
-            time.sleep(1)
+            except KeyboardInterrupt:
+                raise KeyboardInterrupt
+
+            except Exception as e :
+                print("accept_client Exception : ", e)
+                time.sleep(1)
 
     def send(self, byte_data) :
         #print('Server ', self , ' called send : ', len(byte_data))
@@ -104,9 +108,38 @@ class Server:
                 f.write('\n')
 
 
+class ServerThreadPool():
+    def __init__(self, ip_addr, port_list, max_connection):
+        self.setup_threadpool()
+        self.server_ip = ip_addr
+        self.port_list = port_list
+
+    def setup_threadpool(self): 
+        self.thread_pool = ThreadPoolExecutor(6)
+
+    def server_port(self):
+        print("len(self.port_list) : ", len(self.port_list))
+        for i in range(len(self.port_list)):
+            self.port = {
+                "port" + str(self.port_list[i]) : Server(self.server_ip, self.port_list[i])  
+            }
+            self.thread_pool.submit( self.port["port" + str(self.port_list[i])].accept_client() )
+        print(self.port)
+
+    def close_all_connections(self, port) : 
+        print("all connection closed")
+        for i in port:
+            self.port_list["port" + str(self.port_list[i])].disconnect()
+
+
 if __name__ == "__main__" :
-    server = Server("127.0.0.1", 7979, 3)
-    server.accept_client()
-    data = server.recv(1024)
-    print( data.decode())
+    ip_addr = "127.0.0.1"
+    port_list = [7979, 7980]
+
+    server = ServerThreadPool(ip_addr, port_list, 3)
+    server.server_port()
+    # server.accept_client()
+    # data = server.recv(10)
+    # print(data.decode())
+    # server.send(data)
 
