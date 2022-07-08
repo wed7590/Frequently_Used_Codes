@@ -1,0 +1,54 @@
+public 테스트 명령
+
+mosquitto_sub -d -h localhost -p 1883 -t "myfirst/test"
+mosquitto_pub -d -h localhost -p 1883 -t "myfirst/test" -m "Hello"
+
+
+mosquitto_sub -h localhost -t /testTopic
+
+
+
+mosquitto_sub -t "MY_TOPIC"
+mosquitto_pub -t "MY_TOPIC" -m HELLO
+
+
+TLS 테스트 명령
+mosquitto_sub -v -t /momo -p 8884 -h localhost -u test -P 1234 –-cafile C:/mosquitto/OpenSSL-Win64/cert/ca.crt –-cert C:/mosquitto/OpenSSL-Win64/cert/server.crt –-key C:/mosquitto/OpenSSL-Win64/cert/server.key --tls-version tlsv1.2
+mosquitto_pub -t /momo -p 8884 -h localhost -u test -P 1234 –-cafile C:/mosquitto/OpenSSL-Win64/cert/ca.crt –-cert C:/mosquitto/OpenSSL-Win64/cert/server.crt --key C:/mosquitto/OpenSSL-Win64/cert/server.key --tls-version tlsv1.2 -m “hello, momo!”
+
+
+
+
+
+openssl 인증서 만들기
+
+CA 보안키 생성 (pw 설정 : 1234 )
+openssl genrsa -des3 -out ca.key 2048
+CA 인증서 생성
+openssl req -new -x509 -days 3650 -key ca.key -out ca.crt
+
+서버(server)키 생성
+openssl genrsa -out server.key 2048 
+서버 CSR(인증서 서명 요청서) 생성
+openssl req -new -out server.csr -key server.key
+--> Common Name 서버의 Host Name 또는 IP 입력 (localhost)
+CSR을 CA로 발송 → 서버 인증서 생성
+openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650
+서버 인증서 검증해 보기
+openssl verify -CAfile ca.crt server.crt
+
+
+클라이언트 키 생성 
+openssl genrsa -out client.key 2048
+클라이언트 CSR (인증서 서명 요청서) 생성
+openssl req -out client.csr -key client.key -new
+--> Common Name 서버의 Host Name 또는 IP 입력 (localhost)
+CSR을 CA로 발송 → Client 인증서 생성
+openssl x509 -req -in client.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out client.crt -days 3650
+클라이언트 인증서 검증
+openssl verify -CAfile ca.crt client.crt
+
+
+
+net start mosquitto
+net stop mosquitto

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src='https://cdn.plot.ly/plotly-2.3.0.min.js'></script>
+    </head>
+
+    <body>
+        <p>
+            Here's a simple Plotly plot
+        </p>
+
+        <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+
+        <script type="text/javascript" >
+            var trace1 = {
+                x: ['Zebras', 'Lions', 'Pelicans'],
+                y: [90, 40, 60],
+                type: 'bar',
+                name: 'New York Zoo'
+            };
+
+            var trace2 = {
+                x: ['Zebras', 'Lions', 'Pelicans'],
+                y: [10, 80, 45],
+                type: 'bar',
+                name: 'San Francisco Zoo'
+            };
+
+            var data = [trace1, trace2];
+
+            var layout = {
+                showlegend: true
+            };
+
+            Plotly.newPlot('myDiv', data, layout);
+        </script>
+
+    </body>
+        
+</html>

@@ -1,0 +1,128 @@
+{
+    "HAEcms": [
+        {
+            "fr": "CMS_ALG",
+            "to": "CMS_DMC",
+            "rt": "algo_result",
+            "si": "",
+            "ct": "20211008113017",
+            "con": {
+                "algoVersion": "v0.0.1",
+                "portInfo": [
+                    {
+                        "portNum": 1,
+                        "aiscore": "0.1",
+                        "installedSite": "SP/TE2/R/A/1/V",
+                        "sensorOpt": "155.0/17.87/350000/0",
+                        "algoType": "1N",
+                        "freqBandEnergy": "32/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5/0.5",
+                        "overallRMS": 10,
+                        "baseFreq": 20,
+                        "freqHarmonicsRMS": 30,
+                        "standardDeviation": 40,
+                        "Skewness": 50,
+                        "Kurtosis": 60
+                    },
+                    {
+                        "portNum": 2,
+                        "aiscore": "0.2",
+                        "installedSite": "SP/TE2/R/A/2/V",
+                        "sensorOpt": "155.0/17.87/350000/0",
+                        "algoType": "1N",
+                        "freqBandEnergy": "32/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6/0.6",
+                        "overallRMS": 11,
+                        "baseFreq": 21,
+                        "freqHarmonicsRMS": 31,
+                        "standardDeviation": 41,
+                        "Skewness": 51,
+                        "Kurtosis": 61
+                    },
+                    {
+                        "portNum": 3,
+                        "aiscore": "0.3",
+                        "installedSite": "SP/TE2/R/A/3/V",
+                        "sensorOpt": "155.0/17.87/350000/0",
+                        "algoType": "1N",
+                        "freqBandEnergy": "32/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7/0.7",
+                        "overallRMS": 12,
+                        "baseFreq": 22,
+                        "freqHarmonicsRMS": 32,
+                        "standardDeviation": 42,
+                        "Skewness": 52,
+                        "Kurtosis": 62
+                    },
+                    {
+                        "portNum": 4,
+                        "aiscore": "0.4",
+                        "installedSite": "SP/TE2/R/A/4/V",
+                        "sensorOpt": "155.0/17.87/350000/0",
+                        "algoType": "1N",
+                        "freqBandEnergy": "32/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8/0.8",
+                        "overallRMS": 13,
+                        "baseFreq": 23,
+                        "freqHarmonicsRMS": 33,
+                        "standardDeviation": 43,
+                        "Skewness": 53,
+                        "Kurtosis": 63
+                    },
+                    {
+                        "portNum": 5,
+                        "aiscore": "0.5",
+                        "installedSite": "SP/TE2/R/A/5/V",
+                        "sensorOpt": "155.0/17.87/350000/0",
+                        "algoType": "1N",
+                        "freqBandEnergy": "32/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9/0.9",
+                        "overallRMS": 14,
+                        "baseFreq": 24,
+                        "freqHarmonicsRMS": 34,
+                        "standardDeviation": 44,
+                        "Skewness": 54,
+                        "Kurtosis": 64
+                    },
+                    {
+                        "portNum": 6,
+                        "aiscore": "0.6",
+                        "installedSite": "SP/TE2/R/A/6/V",
+                        "sensorOpt": "155.0/17.87/350000/0",
+                        "algoType": "1N",
+                        "freqBandEnergy": "32/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0/1.0",
+                        "overallRMS": 15,
+                        "baseFreq": 25,
+                        "freqHarmonicsRMS": 35,
+                        "standardDeviation": 45,
+                        "Skewness": 55,
+                        "Kurtosis": 65
+                    },
+                    {
+                        "portNum": 7,
+                        "aiscore": "0.7",
+                        "installedSite": "SP/TE2/R/A/7/V",
+                        "sensorOpt": "155.0/17.87/350000/0",
+                        "algoType": "1N",
+                        "freqBandEnergy": "32/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1/1.1",
+                        "overallRMS": 16,
+                        "baseFreq": 26,
+                        "freqHarmonicsRMS": 36,
+                        "standardDeviation": 46,
+                        "Skewness": 56,
+                        "Kurtosis": 66
+                    },
+                    {
+                        "portNum": 8,
+                        "aiscore": "0.8/0.9/1.0",
+                        "installedSite": "SP/TE2/R/A/8/V",
+                        "sensorOpt": "155.0/17.87/350000/0",
+                        "algoType": "3NBM",
+                        "freqBandEnergy": "64/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2/1.2",
+                        "overallRMS": 17,
+                        "baseFreq": 27,
+                        "freqHarmonicsRMS": 37,
+                        "standardDeviation": 47,
+                        "Skewness": 57,
+                        "Kurtosis": 67
+                    }
+                ]
+            }
+        }
+    ]
+}

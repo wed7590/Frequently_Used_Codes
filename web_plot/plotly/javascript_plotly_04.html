@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src='https://cdn.plot.ly/plotly-2.3.0.min.js'></script>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+    </head>
+
+    <body>
+        <p>
+            Here's a simple Plotly plot
+        </p>
+
+        <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+
+        <script type="text/javascript" >
+            var myDiv = document.getElementById('myDiv'),
+                N = 40,
+                x = d3.range(N),
+                y = d3.range(N).map( d3.randomNormal() ),
+                data = [ { x:x, y:y } ];
+                layout = { title:'Click-drag to zoom' };
+
+            Plotly.newPlot( 'myDiv', data, layout, {showSendToCloud: true});
+
+            myDiv.on('plotly_relayout',
+                function(eventdata){  
+                    alert( 'ZOOM!' + '\n\n' +
+                        'Event data:' + '\n' + 
+                        JSON.stringify(eventdata) + '\n\n' +
+                        'x-axis start:' + eventdata['xaxis.range[0]'] + '\n' +
+                        'x-axis end:' + eventdata['xaxis.range[1]'] );
+                });
+        </script>
+
+    </body>
+        
+</html>

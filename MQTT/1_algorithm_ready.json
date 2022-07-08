@@ -1,0 +1,11 @@
+{
+    "HAEcms": [
+        {
+            "fr": "CMS_ALG",
+            "to": "CMS_DMC",
+            "rt": "algo_ready_complete",
+            "si": "",
+            "ct": "20211008113017"
+        }
+    ]
+}

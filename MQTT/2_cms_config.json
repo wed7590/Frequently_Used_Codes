@@ -1,0 +1,71 @@
+{
+    "HAEcms": [
+        {
+            "fr": "CMS_DAQ",
+            "to": "CMS_ALG",
+            "rt": "cms_state",
+            "si": "",
+            "ct": "20211008113017",
+            "con": {
+               "portInfo": [
+                   {
+                       "portNum": 1,
+                       "installedSite": "SP/TE2/R/A/1/V",
+                       "sensorOpt": "155.0/17.87/350000/0",
+                       "algoType": "1N",
+                       "bandNum": 32
+                   },
+                   {
+                       "portNum": 2,
+                       "installedSite": "SP/TE2/R/A/2/V",
+                       "sensorOpt": "155.0/17.87/350000/0",
+                       "algoType": "1N",
+                       "bandNum": 32
+                   },
+                   {
+                       "portNum": 3,
+                       "installedSite": "SP/TE2/R/A/3/V",
+                       "sensorOpt": "155.0/17.87/350000/0",
+                       "algoType": "1N",
+                       "bandNum": 32
+                   },
+                   {
+                       "portNum": 4,
+                       "installedSite": "SP/TE2/R/A/4/V",
+                       "sensorOpt": "155.0/17.87/350000/0",
+                       "algoType": "1N",
+                       "bandNum": 32
+                   },
+                   {
+                       "portNum": 5,
+                       "installedSite": "SP/TE2/R/A/5/V",
+                       "sensorOpt": "155.0/17.87/350000/0",
+                       "algoType": "1N",
+                       "bandNum": 32
+                   },
+                   {
+                       "portNum": 6,
+                       "installedSite": "SP/TE2/R/A/6/V",
+                       "sensorOpt": "155.0/17.87/350000/0",
+                       "algoType": "1N",
+                       "bandNum": 32
+                   },
+                   {
+                       "portNum": 7,
+                       "installedSite": "SP/TE2/R/A/7/V",
+                       "sensorOpt": "155.0/17.87/350000/0",
+                       "algoType": "1N",
+                       "bandNum": 32
+                   },
+                   {
+                       "portNum": 8,
+                       "installedSite": "SP/TE2/R/A/8/V",
+                       "sensorOpt": "155.0/17.87/350000/0",
+                       "algoType": "3NBM",
+                       "bandNum": 64                    
+                   }
+                ]
+            }
+        }
+    ]
+}
